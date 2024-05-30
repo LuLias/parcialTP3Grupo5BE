@@ -9,7 +9,7 @@
         android:title="Explore" />
     <item
         android:id="@+id/searchFragment"
-        android:icon="@drawable/search_icon"
+        android:icon="@drawable/search_flights_icon"
         android:iconTint="@color/dark_grey"
         android:title="Search" />
     <item

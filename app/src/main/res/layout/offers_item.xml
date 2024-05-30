@@ -50,12 +50,14 @@
             android:id="@+id/offerVector"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="right"
             android:src="@drawable/offer_vector" />
 
         <ImageView
             android:id="@+id/imgCreditCard"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            app:srcCompat="@drawable/credit_card_1"
             />
 
         <ImageView

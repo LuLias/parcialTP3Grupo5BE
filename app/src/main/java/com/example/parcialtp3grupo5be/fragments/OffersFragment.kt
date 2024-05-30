@@ -26,6 +26,11 @@ class OffersFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initOffersRV(view)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
