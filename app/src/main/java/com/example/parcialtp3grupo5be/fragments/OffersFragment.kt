@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
+import com.example.parcialtp3grupo5be.adapters.OfferAdapter
+import com.example.parcialtp3grupo5be.providers.OffersProvider
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +41,16 @@ class OffersFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_offers, container, false)
     }
+
+    private fun initOffersRV (view : View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.offersRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false )
+        recyclerView.adapter = OfferAdapter(OffersProvider.offersList)
+
+
+    }
+
+
 
     companion object {
         /**
