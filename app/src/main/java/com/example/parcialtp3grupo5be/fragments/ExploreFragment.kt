@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
+import com.example.parcialtp3grupo5be.adapters.TrendingDestinationAdapter
+import com.example.parcialtp3grupo5be.providers.TrendingDestinationsProvider
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +26,11 @@ class ExploreFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initTrendingDestinationsRV(view)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,8 +45,14 @@ class ExploreFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_explore, container, false)
+
     }
 
+    private fun initTrendingDestinationsRV(view: View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.trendingDestinationsRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        recyclerView.adapter = TrendingDestinationAdapter(TrendingDestinationsProvider.TrendingDestinationList)
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
