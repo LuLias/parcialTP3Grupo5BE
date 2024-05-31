@@ -12,4 +12,16 @@
         android:gravity="center"
         android:text="SEARCH" />
 
+    <Button
+        android:id="@+id/btnToSearchResults"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:backgroundTint="@color/orange"
+        android:text="Search"
+        android:layout_gravity="center"
+
+        android:textColor="@color/white"
+
+        />
+
 </FrameLayout>
