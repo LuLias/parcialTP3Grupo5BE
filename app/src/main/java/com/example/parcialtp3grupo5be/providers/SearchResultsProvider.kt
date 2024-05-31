@@ -37,6 +37,56 @@ class SearchResultsProvider {
                 "Viru Viru International Airport (VVI)",
                 "Economy",
                 3423
+            ),  SearchResultsModel(
+                "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                "American",
+                180,
+                "EZE",
+                "VVI",
+                "Ezeiza International Airport",
+                "Viru Viru International Airport (VVI)",
+                "Economy",
+                3423
+            ),  SearchResultsModel(
+                "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                "American",
+                180,
+                "EZE",
+                "VVI",
+                "Ezeiza International Airport",
+                "Viru Viru International Airport (VVI)",
+                "Economy",
+                3423
+            ),  SearchResultsModel(
+                "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                "American",
+                180,
+                "EZE",
+                "VVI",
+                "Ezeiza International Airport",
+                "Viru Viru International Airport (VVI)",
+                "Economy",
+                3423
+            ),  SearchResultsModel(
+                "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                "American",
+                180,
+                "EZE",
+                "VVI",
+                "Ezeiza International Airport",
+                "Viru Viru International Airport (VVI)",
+                "Economy",
+                3423
+            ),  SearchResultsModel(
+                "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                "American",
+                180,
+                "EZE",
+                "VVI",
+                "Ezeiza International Airport",
+                "Viru Viru International Airport (VVI)",
+                "Economy",
+                3423
             )
 
 
