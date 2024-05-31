@@ -19,10 +19,19 @@
         android:id="@+id/searchFragment"
         android:name="com.example.parcialtp3grupo5be.fragments.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/offersFragment"
         android:name="com.example.parcialtp3grupo5be.fragments.OffersFragment"
         android:label="fragment_offers"
         tools:layout="@layout/fragment_offers" />
+    <fragment
+        android:id="@+id/searchResultsFragment"
+        android:name="com.example.parcialtp3grupo5be.fragments.SearchResultsFragment"
+        android:label="fragment_search_results"
+        tools:layout="@layout/fragment_search_results" />
 </navigation>
