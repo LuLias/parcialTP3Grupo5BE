@@ -4,68 +4,85 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    >
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_gravity="center_horizontal"
         android:padding="16dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/imgLimitedOffer"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/limited_offer" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtOfferTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtOfferDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="14sp"
-                android:textColor="@android:color/darker_gray" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/offerVector"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="right"
-            android:src="@drawable/offer_vector" />
-
-        <ImageView
-            android:id="@+id/imgCreditCard"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/credit_card_1"
-            />
+            android:background="@drawable/tooltip_background"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="2dp"
+            android:src="@drawable/limited_offer"
+            android:fontFamily="@font/roboto_medium"
+            android:text="LIMITED OFFER!"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/offerHeartIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/heart_icon" />
+            android:src="@drawable/heart_icon_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/txtOfferTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get 20% discount with your Master credit cards"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLimitedOffer" />
 
+        <ImageView
+            android:id="@+id/imgCreditCard"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtOfferTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/credit_card_1"/>
+
+        <TextView
+            android:id="@+id/txtOfferDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Use your mastercard with any transaction and get 20% discount instantly!"
+            android:textColor="@android:color/darker_gray"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCreditCard"
+            app:layout_constraintEnd_toStartOf="@+id/offerVector"
+            app:layout_constraintStart_toEndOf="@+id/imgCreditCard"
+            app:layout_constraintTop_toTopOf="@+id/imgCreditCard" />
+
+        <ImageView
+            android:id="@+id/offerVector"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="right"
+            android:src="@drawable/offer_vector"
+            app:layout_constraintBottom_toBottomOf="@+id/txtOfferDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtOfferDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

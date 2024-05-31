@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 import com.example.parcialtp3grupo5be.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +37,15 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        val btnBack = view.findViewById<ImageButton>(R.id.btnBackProfile)
+
+        btnBack.setOnClickListener(){
+            findNavController().navigate(R.id.action_profileFragment_to_exploreFragment)
+        }
+
+        return view
     }
 
     companion object {

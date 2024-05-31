@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ExploreFragment"
-    android:background="@color/light_grey">
+    android:background="@color/light_grey"
+    android:id="@+id/drawerLayout">
 
     <!-- TODO: Update blank fragment layout -->
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerContainer"
@@ -27,6 +29,7 @@
             android:background="@color/white"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/hamburger_icon"
             />
 
         <ImageView
@@ -54,7 +57,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:cardCornerRadius="40dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="@id/materialToolbar"
             app:layout_constraintTop_toTopOf="@id/materialToolbar"
             app:layout_constraintBottom_toBottomOf="@id/materialToolbar">
@@ -70,6 +73,8 @@
 
 
         </androidx.cardview.widget.CardView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
@@ -186,7 +191,7 @@
                     android:fontFamily="@font/inter_regular"
                     android:text="Flight"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@id/btnFlight"
                     app:layout_constraintStart_toStartOf="@id/btnFlight"
                     app:layout_constraintTop_toBottomOf="@id/btnFlight" />
@@ -206,6 +211,7 @@
                     android:paddingHorizontal="20dp"
                     android:text="Trending Destinations"
                     android:textSize="18sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -227,7 +233,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingHorizontal="10dp"
-                    android:paddingVertical="20dp"
+                    android:paddingVertical="15dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtTrendingDestinations"
 
 
@@ -247,6 +253,7 @@
                     android:paddingHorizontal="20dp"
                     android:text="Offers"
                     android:textSize="18sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -254,7 +261,7 @@
                     android:id="@+id/offersExploreRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingVertical="20dp"
+                    android:paddingVertical="15dp"
                     android:paddingHorizontal="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/txtOffers"
 
