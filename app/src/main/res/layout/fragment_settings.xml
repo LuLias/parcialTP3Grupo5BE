@@ -7,57 +7,74 @@
     android:padding="16dp"
     android:background="@color/light_grey">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerContainer"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/hamburger_icon"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/txtAppTitle"
             app:layout_constraintStart_toStartOf="parent"
-            android:padding="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/hamburger_icon"
+            />
 
-        <TextView
-            android:id="@+id/txtAppTitle"
+        <ImageView
+            android:id="@+id/imgHeaderLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_black"
-            android:text="FickleFlight"
-            android:textColor="@color/light_blue"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/menuButton"
-            app:layout_constraintTop_toTopOf="parent"
-            android:padding="8dp"/>
+            android:src="@drawable/logo_gradient"
+            app:layout_constraintStart_toStartOf="@id/materialToolbar"
+            app:layout_constraintEnd_toEndOf="@id/materialToolbar"
+            app:layout_constraintBottom_toBottomOf="@id/materialToolbar"
+            app:layout_constraintTop_toTopOf="@id/materialToolbar"/>
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/orange_tooltip_circle"
+            app:layout_constraintEnd_toEndOf="@id/contHeaderProfile"
+            app:layout_constraintTop_toTopOf="@id/contHeaderProfile"
+
+            android:translationZ="20dp"
+            />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/crdContainerDrawerAvatar"
+            android:id="@+id/contHeaderProfile"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/txtAppTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txtAppTitle"
-            android:layout_marginEnd="8dp">
+            app:cardCornerRadius="40dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="@id/materialToolbar"
+            app:layout_constraintTop_toTopOf="@id/materialToolbar"
+            app:layout_constraintBottom_toBottomOf="@id/materialToolbar">
+
 
             <ImageView
-                android:id="@+id/imgDrawerAvatar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/profile_avatar_image" />
+                android:id="@+id/imgHeaderProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/profile_avatar_image"/>
+
+
+
+
         </androidx.cardview.widget.CardView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -86,7 +103,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/switchDarkMode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -98,17 +115,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView" />
 
-        <TextView
-            android:id="@+id/txtArgumentos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Argumentos"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.459"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.305" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,9 +52,8 @@
         android:name="com.example.parcialtp3grupo5be.fragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
-        <argument
-            android:name="unAvatar"
-            app:argType="string"
-            android:defaultValue="avatar" />
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

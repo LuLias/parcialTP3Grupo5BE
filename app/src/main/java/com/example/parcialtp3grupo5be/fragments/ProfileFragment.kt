@@ -57,8 +57,9 @@ class ProfileFragment : Fragment() {
         toSettings.setOnClickListener(){
             findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
+
         toSettingsFromPayment.setOnClickListener(){
-            val action = ProfileFragmentDirections.actionProfileFragmentToSettingsFragment(avatar)
+            val action = ProfileFragmentDirections.actionProfileFragmentToSettingsFragment()
             findNavController().navigate(action)
         }
 

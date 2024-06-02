@@ -1,9 +1,11 @@
 package com.example.parcialtp3grupo5be.activities
 
 import android.os.Bundle
+import android.widget.Switch
 import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -53,6 +55,8 @@ class MainActivity : AppCompatActivity() {
         setupDrawerLayout()
 
     }
+
+
 
 
     private fun setupDrawerLayout(){

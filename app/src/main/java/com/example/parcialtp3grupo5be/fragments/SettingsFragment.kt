@@ -5,10 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.findNavController
 import com.example.parcialtp3grupo5be.R
-import com.example.parcialtp3grupo5be.R.id.txtArgumentos
+import com.google.android.material.appbar.MaterialToolbar
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +28,8 @@ private const val ARG_PARAM2 = "param2"
 class SettingsFragment : Fragment() {
 
     lateinit var settingsFragmentView : View
-    lateinit var recibeArgumentos : TextView
+    lateinit var btnBackToProfile : MaterialToolbar
+
 
 
     // TODO: Rename and change types of parameters
@@ -44,21 +50,22 @@ class SettingsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         settingsFragmentView = inflater.inflate(R.layout.fragment_settings, container, false)
-        recibeArgumentos = settingsFragmentView.findViewById(txtArgumentos)   //el imageview
+        btnBackToProfile = settingsFragmentView.findViewById(R.id.materialToolbar)
 
-
+        btnBackToProfile.setOnClickListener{
+            val action = SettingsFragmentDirections.actionSettingsFragmentToProfileFragment()
+            settingsFragmentView.findNavController().navigate(action)
+        }
         return settingsFragmentView
     }
 
     override fun onStart() {
         super.onStart()
 
-        val parametro = SettingsFragmentArgs.fromBundle(requireArguments()).unAvatar
-        recibeArgumentos.text = parametro
-
 
 
     }
+
 
 
     companion object {
