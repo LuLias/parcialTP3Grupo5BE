@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.parcialtp3grupo5be.R
-import com.example.parcialtp3grupo5be.entities.SearchResultsModel
+import com.example.parcialtp3grupo5be.entities.Flight
 
 class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val logo_airline = view.findViewById<ImageView>(R.id.imgLogoAirline)
@@ -19,21 +19,25 @@ class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val travel_class = view.findViewById<TextView>(R.id.txtTravelClass)
     val price = view.findViewById<TextView>(R.id.txtPrice)
 
-    fun render (model: SearchResultsModel){
+    fun render (model: Flight){
 
-        Glide.with(logo_airline.context).load(model.logo_airline).into(logo_airline)
+        Glide.with(logo_airline.context).load(model.airline_logo).into(logo_airline)
 
-        airline.text = model.airline
-        duration.text = model.duration.toString()
-        departure_airport_id.text = model.departure_airport_id
-        arrival_airport_id.text = model.arrival_airport_id
-        departure_airport_name.text = model.departure_airport_name
-        arrival_airport_name.text = model.arrival_airport_name
-        travel_class.text = model.travel_class
-        price.text = model.price.toString()
+        airline.text = model.flights[0].airline
+        duration.text = formatDuration(model.total_duration)
+        departure_airport_id.text = model.flights[0].departure_airport.id
+        arrival_airport_id.text = model.flights.last().arrival_airport.id
+        departure_airport_name.text = model.flights[0].departure_airport.name.split(" ")[0]
+        arrival_airport_name.text = model.flights.last().arrival_airport.name.split(" ")[0]
+        travel_class.text = model.flights[0].travel_class
+        price.text = String.format("$%02d",model.price)
 
+    }
 
-
+    private fun formatDuration(totalDuration: Int): String {
+        val hours = totalDuration / 60
+        val minutes = totalDuration % 60
+        return String.format("%02d hr %02dmin", hours, minutes)
     }
 
 }
