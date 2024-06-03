@@ -45,8 +45,6 @@ class ProfileFragment : Fragment() {
         val btnBack = view.findViewById<ImageButton>(R.id.btnBackProfile)
         val toSettings = view.findViewById<ImageView>(R.id.imgSettingsProfile)
         val toSettingsFromText = view.findViewById<TextView>(R.id.txtSettingsProfile)
-        val toSettingsFromPayment = view.findViewById<ImageView>(R.id.imgPaymentProfile) //SACAR!
-      //  val avatar = view.findViewById<TextView>(R.id.imgAvatarProfile)
         val avatar= "Avatar"
 
         btnBack.setOnClickListener(){
@@ -58,10 +56,6 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
         }
 
-        toSettingsFromPayment.setOnClickListener(){
-            val action = ProfileFragmentDirections.actionProfileFragmentToSettingsFragment()
-            findNavController().navigate(action)
-        }
 
         toSettingsFromText.setOnClickListener(){
             val action = R.id.action_profileFragment_to_exploreFragment
