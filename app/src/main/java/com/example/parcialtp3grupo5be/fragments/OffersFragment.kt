@@ -48,7 +48,7 @@ class OffersFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_offers, container, false)
 
-        //cambio el icono de la toolbar y su funcion
+        // Agrego funcion de volver al home al icono de la toolbar
         val toolbar = view.findViewById<MaterialToolbar>(R.id.materialToolbar)
         toolbar.setNavigationOnClickListener {
             // Volver al explore

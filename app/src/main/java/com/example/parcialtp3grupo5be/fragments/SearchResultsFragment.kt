@@ -6,22 +6,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
+import android.widget.ProgressBar
+import android.widget.ScrollView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
 import com.example.parcialtp3grupo5be.adapters.SearchResultsAdapter
 import com.example.parcialtp3grupo5be.entities.Flight
-import com.example.parcialtp3grupo5be.entities.PaginateResponse
+import com.example.parcialtp3grupo5be.entities.SearchResponse
 import com.example.parcialtp3grupo5be.providers.SearchResultsProvider
-import com.example.parcialtp3grupo5be.services.ActivityServiceApiBuilder.create
-import com.google.gson.GsonBuilder
-import kotlinx.coroutines.launch
+import com.example.parcialtp3grupo5be.services.ActivityServiceApiBuilder
+import com.google.android.material.appbar.MaterialToolbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.http.Tag
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,12 +40,16 @@ class SearchResultsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     lateinit var adapter:SearchResultsAdapter
+    lateinit var recyclerView : RecyclerView
+    lateinit var progressBar: ProgressBar
+    lateinit var txtResultsFound: TextView
+    lateinit var containerFlightsResults : ScrollView
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fetchData()
         initSearchResultsRV(view)
+        fetchData()
 
     }
 
@@ -53,33 +59,6 @@ class SearchResultsFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
-
-
-          /*
-              val api = create()
-              lifecycleScope.launch {
-                  val response = api.getSearchResult()
-
-                      val gson = GsonBuilder().setPrettyPrinting().create()
-                      val jsonData = gson.toJson(response)
-                      println("**Resultado de la API:**")
-                      println(jsonData)
-
-
-
-
-
-
-            val result = api.getSearchResult()
-        println(result)
-        Log.d("hola", result.toString())
-        }
-
-
-
-        } */
-
     }
 
     override fun onCreateView(
@@ -87,21 +66,53 @@ class SearchResultsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_results, container, false)
+        val view = inflater.inflate(R.layout.fragment_search_results, container, false)
+
+        txtResultsFound = view.findViewById(R.id.txtResultsFound)
+        containerFlightsResults = view.findViewById(R.id.containerFlightsResults)
+
+        // Agrego funcion de volver al searchFragment al icono de la toolbar
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.materialToolbar)
+        toolbar.setNavigationOnClickListener {
+            // Volver a search
+            findNavController().navigate(R.id.action_searchResultsFragment_to_searchFragment)
+        }
+
+        return view
+
     }
 
     private fun initSearchResultsRV(view : View){
-        val recyclerView = view.findViewById<RecyclerView>(R.id.searchResultRecyclerView)
+        recyclerView = view.findViewById<RecyclerView>(R.id.searchResultRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager (context, LinearLayoutManager.VERTICAL,false)
-        adapter = SearchResultsAdapter(SearchResultsProvider.searchResultsList)
-        recyclerView.adapter = adapter
+        progressBar = view.findViewById(R.id.progressBar)
     }
 
+
     private fun fetchData() {
-        SearchResultsProvider.fetchSearchResults{ searchResults ->
-            adapter.searchResultsList = searchResults
-            adapter.notifyDataSetChanged()
-        }
+        progressBar.visibility = View.VISIBLE
+        containerFlightsResults.visibility = View.GONE
+        val call = ActivityServiceApiBuilder.create().getSearchResult()
+        call.enqueue(object : Callback<SearchResponse> {
+            override fun onResponse(call: Call<SearchResponse>, response: Response<SearchResponse>) {
+                if (response.isSuccessful) {
+                    response.body()?.let { searchResponse ->
+                        val flights: List<Flight> = searchResponse.best_flights
+                        SearchResultsProvider.searchResultsList = flights
+                        adapter = SearchResultsAdapter(SearchResultsProvider.searchResultsList)
+                        recyclerView.adapter = adapter
+                        txtResultsFound.text = "${flights.size} results found"
+                        progressBar.visibility = View.GONE
+                        containerFlightsResults.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+                Toast.makeText(activity, "Error de conexion", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
+            }
+        })
     }
 
 

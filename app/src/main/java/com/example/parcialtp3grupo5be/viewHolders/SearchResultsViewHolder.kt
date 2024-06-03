@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.parcialtp3grupo5be.R
 import com.example.parcialtp3grupo5be.entities.Flight
-import com.example.parcialtp3grupo5be.entities.SearchResultsModel
 
 class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val logo_airline = view.findViewById<ImageView>(R.id.imgLogoAirline)
@@ -25,16 +24,20 @@ class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         Glide.with(logo_airline.context).load(model.airline_logo).into(logo_airline)
 
         airline.text = model.flights[0].airline
-        duration.text = model.total_duration.toString()
+        duration.text = formatDuration(model.total_duration)
         departure_airport_id.text = model.flights[0].departure_airport.id
-        arrival_airport_id.text = model.flights[0].arrival_airport.id
-        departure_airport_name.text = model.flights[0].departure_airport.name
-        arrival_airport_name.text = model.flights[0].arrival_airport.name
+        arrival_airport_id.text = model.flights.last().arrival_airport.id
+        departure_airport_name.text = model.flights[0].departure_airport.name.split(" ")[0]
+        arrival_airport_name.text = model.flights.last().arrival_airport.name.split(" ")[0]
         travel_class.text = model.flights[0].travel_class
-        price.text = model.price.toString()
+        price.text = String.format("$%02d",model.price)
 
+    }
 
-
+    private fun formatDuration(totalDuration: Int): String {
+        val hours = totalDuration / 60
+        val minutes = totalDuration % 60
+        return String.format("%02d hr %02dmin", hours, minutes)
     }
 
 }

@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
 import com.example.parcialtp3grupo5be.entities.Flight
-import com.example.parcialtp3grupo5be.entities.SearchResultsModel
 import com.example.parcialtp3grupo5be.viewHolders.SearchResultsViewHolder
 
 class SearchResultsAdapter (var searchResultsList : List<Flight>) : RecyclerView.Adapter<SearchResultsViewHolder>() {
