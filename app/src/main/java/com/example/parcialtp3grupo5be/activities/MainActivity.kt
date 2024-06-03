@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
 
-            // le pongo padding bottom 0 para evitar que se separe la bottomNav en algunos dispositivos
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
