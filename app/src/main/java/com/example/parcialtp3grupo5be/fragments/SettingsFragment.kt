@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CompoundButton
+import android.widget.CompoundButton.OnCheckedChangeListener
 import android.widget.ImageView
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.navigation.findNavController
 import com.example.parcialtp3grupo5be.R
 import com.google.android.material.appbar.MaterialToolbar
@@ -29,6 +32,7 @@ class SettingsFragment : Fragment() {
 
     lateinit var settingsFragmentView : View
     lateinit var btnBackToProfile : MaterialToolbar
+    lateinit var swDarkMode : SwitchCompat
 
 
 
@@ -51,12 +55,30 @@ class SettingsFragment : Fragment() {
         // Inflate the layout for this fragment
         settingsFragmentView = inflater.inflate(R.layout.fragment_settings, container, false)
         btnBackToProfile = settingsFragmentView.findViewById(R.id.materialToolbar)
+        swDarkMode = settingsFragmentView.findViewById(R.id.switchDarkMode)
 
-        btnBackToProfile.setOnClickListener{
+            btnBackToProfile.setOnClickListener{
             val action = SettingsFragmentDirections.actionSettingsFragmentToProfileFragment()
             settingsFragmentView.findNavController().navigate(action)
         }
+
+        swDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                goInDarkMode()
+            } else {
+                goInNormalMode()
+            }
+        }
+
         return settingsFragmentView
+    }
+
+    private fun goInNormalMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    }
+
+    private fun goInDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
     }
 
     override fun onStart() {
