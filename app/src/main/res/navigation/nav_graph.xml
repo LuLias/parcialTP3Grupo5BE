@@ -51,7 +51,7 @@
         <action
             android:id="@+id/action_searchResultsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
-        tools:layout="@layout/fragment_search_results" />
+    </fragment>
       
     <fragment
         android:id="@+id/settingsFragment"
