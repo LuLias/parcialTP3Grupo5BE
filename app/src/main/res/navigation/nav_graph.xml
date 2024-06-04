@@ -81,4 +81,10 @@
             android:id="@+id/action_detailsFragment_to_searchResultsFragment"
             app:destination="@id/searchResultsFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_global_profileFragment"
+        app:destination="@id/profileFragment" />
+    <action
+        android:id="@+id/action_global_settingsFragment"
+        app:destination="@id/settingsFragment" />
 </navigation>
