@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btnProfileDrawer"
+        android:icon="@drawable/profile_drawer_icon"
+        android:title="Profile" />
+    <item
+        android:id="@+id/btnNotificationDrawer"
+        android:icon="@drawable/notification_drawer_icon"
+        android:title="Notification" />
+    <item
+        android:id="@+id/btnHelpDrawer"
+        android:icon="@drawable/mail_drawer_icon"
+        android:title="Get Help" />
+    <item
+        android:id="@+id/btnCalendarDrawer"
+        android:icon="@drawable/calender_drawer_icon"
+        android:title="Calendar" />
+    <item
+        android:id="@+id/btnSettingsDrawer"
+        android:icon="@drawable/settings_drawer_icon"
+        android:title="Settings" />
+</menu>

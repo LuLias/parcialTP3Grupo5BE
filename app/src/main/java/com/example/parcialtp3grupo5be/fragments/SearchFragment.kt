@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
+import com.example.parcialtp3grupo5be.adapters.OfferPreviewAdapter
+import com.example.parcialtp3grupo5be.providers.OffersProvider
+import com.google.android.material.appbar.MaterialToolbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +30,9 @@ class SearchFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var view1 : View
+    lateinit var btnToResults : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -30,12 +41,43 @@ class SearchFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initHorizontalOffersRV(view)
+    }
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+
+        view1 = inflater.inflate(R.layout.fragment_search, container, false)
+        btnToResults = view1.findViewById(R.id.btnToSearchResults)
+        val toolbar = view1.findViewById<MaterialToolbar>(R.id.materialToolbar)
+
+        btnToResults.setOnClickListener {
+            val action = SearchFragmentDirections.actionSearchFragmentToSearchResultsFragment()
+            view1.findNavController().navigate(action)
+        }
+
+        // Agrego funcion de volver al home al icono de la toolbar
+        toolbar.setNavigationOnClickListener {
+            // Volver al explore
+            findNavController().navigate(R.id.action_searchFragment_to_exploreFragment)
+        }
+
+
+
+        return view1
+    }
+
+    private fun initHorizontalOffersRV (view : View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.offersSearchRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false )
+        recyclerView.adapter = OfferPreviewAdapter(OffersProvider.offersList)
     }
 
     companion object {

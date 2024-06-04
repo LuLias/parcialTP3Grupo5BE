@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/normal"  android:state_hovered="false" android:state_pressed="false">
+        <shape android:shape="oval">
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+    <item android:id="@+id/hovered"  android:state_hovered="true" android:state_pressed="false">
+        <shape android:shape="oval">
+            <solid android:color="#CCCCCC"/>
+        </shape>
+    </item>
+    <item android:id="@+id/pressed"  android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/dark_grey"/>
+        </shape>
+    </item>
+</selector>

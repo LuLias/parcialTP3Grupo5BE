@@ -5,7 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
+import com.example.parcialtp3grupo5be.adapters.OfferAdapter
+import com.example.parcialtp3grupo5be.providers.OffersProvider
+import com.google.android.material.appbar.MaterialToolbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +28,11 @@ class OffersFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initOffersRV(view)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,8 +46,29 @@ class OffersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_offers, container, false)
+        val view = inflater.inflate(R.layout.fragment_offers, container, false)
+
+        // Agrego funcion de volver al home al icono de la toolbar
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.materialToolbar)
+        toolbar.setNavigationOnClickListener {
+            // Volver al explore
+            findNavController().navigate(R.id.action_offersFragment_to_exploreFragment)
+        }
+
+        return view
+
     }
+
+
+    private fun initOffersRV (view : View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.offersRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false )
+        recyclerView.adapter = OfferAdapter(OffersProvider.offersList)
+
+
+    }
+
+
 
     companion object {
         /**

@@ -5,7 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
+import com.example.parcialtp3grupo5be.adapters.OfferAdapter
+import com.example.parcialtp3grupo5be.adapters.OfferPreviewAdapter
+import com.example.parcialtp3grupo5be.adapters.TrendingDestinationAdapter
+import com.example.parcialtp3grupo5be.providers.OffersProvider
+import com.example.parcialtp3grupo5be.providers.TrendingDestinationsProvider
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.navigation.NavigationView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +34,16 @@ class ExploreFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initTrendingDestinationsRV(view)
+        initHorizontalOffersRV(view)
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,8 +57,30 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore, container, false)
+
+         val view = inflater.inflate(R.layout.fragment_explore, container, false)
+
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.materialToolbar)
+        toolbar.setNavigationOnClickListener {
+            // abrir drawer
+            requireActivity().findViewById<DrawerLayout>(R.id.drawerLayout).open()
+        }
+
+        return view
     }
+
+    private fun initTrendingDestinationsRV(view: View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.trendingDestinationsRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+        recyclerView.adapter = TrendingDestinationAdapter(TrendingDestinationsProvider.TrendingDestinationList)
+    }
+
+    private fun initHorizontalOffersRV (view : View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.offersExploreRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false )
+        recyclerView.adapter = OfferPreviewAdapter(OffersProvider.offersList)
+    }
+
 
     companion object {
         /**

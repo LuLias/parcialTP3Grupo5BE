@@ -1,10 +1,15 @@
 package com.example.parcialtp3grupo5be.fragments
 
+import android.graphics.drawable.Icon
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.parcialtp3grupo5be.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +40,29 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        val btnBack = view.findViewById<ImageButton>(R.id.btnBackProfile)
+        val toSettings = view.findViewById<ImageView>(R.id.imgSettingsProfile)
+        val toSettingsFromText = view.findViewById<TextView>(R.id.txtSettingsProfile)
+        val avatar= "Avatar"
+
+        btnBack.setOnClickListener(){
+            val action = R.id.action_profileFragment_to_exploreFragment
+            findNavController().navigate(action)
+        }
+
+        toSettings.setOnClickListener(){
+            findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
+        }
+
+
+        toSettingsFromText.setOnClickListener(){
+            val action = R.id.action_profileFragment_to_settingsFragment
+            findNavController().navigate(action)
+        }
+
+        return view
     }
 
     companion object {
