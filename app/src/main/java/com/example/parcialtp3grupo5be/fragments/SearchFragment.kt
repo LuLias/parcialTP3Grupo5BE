@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
+import com.example.parcialtp3grupo5be.adapters.OfferPreviewAdapter
+import com.example.parcialtp3grupo5be.providers.OffersProvider
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +39,14 @@ class SearchFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initHorizontalOffersRV(view)
+    }
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +62,12 @@ class SearchFragment : Fragment() {
 
 
         return view1
+    }
+
+    private fun initHorizontalOffersRV (view : View){
+        val recyclerView  = view.findViewById<RecyclerView>(R.id.offersSearchRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false )
+        recyclerView.adapter = OfferPreviewAdapter(OffersProvider.offersList)
     }
 
     companion object {
