@@ -63,7 +63,7 @@
                        android:layout_marginBottom="20dp"
                        android:backgroundTint="#F3F5F9"
                        app:cardElevation="0dp"
-                       app:cardCornerRadius="200dp">
+                       app:cardCornerRadius="30dp">
 
                        <com.example.parcialtp3grupo5be.components.CustomSegmentedButton
                            android:layout_width="match_parent"
