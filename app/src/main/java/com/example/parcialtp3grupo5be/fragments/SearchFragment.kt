@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
 import com.example.parcialtp3grupo5be.adapters.OfferPreviewAdapter
 import com.example.parcialtp3grupo5be.providers.OffersProvider
+import com.google.android.material.appbar.MaterialToolbar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,11 +56,19 @@ class SearchFragment : Fragment() {
 
         view1 = inflater.inflate(R.layout.fragment_search, container, false)
         btnToResults = view1.findViewById(R.id.btnToSearchResults)
+        val toolbar = view1.findViewById<MaterialToolbar>(R.id.materialToolbar)
 
         btnToResults.setOnClickListener {
             val action = SearchFragmentDirections.actionSearchFragmentToSearchResultsFragment()
             view1.findNavController().navigate(action)
         }
+
+        // Agrego funcion de volver al home al icono de la toolbar
+        toolbar.setNavigationOnClickListener {
+            // Volver al explore
+            findNavController().navigate(R.id.action_searchFragment_to_exploreFragment)
+        }
+
 
 
         return view1

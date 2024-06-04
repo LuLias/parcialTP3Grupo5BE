@@ -24,23 +24,12 @@
         <item name="color">@color/blue</item>
     </style>
 
-    <style name="CustomSegmentedButton.Start" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerRadius">18dp</item>
-        <item name="cornerSizeTopRight">18dp</item>
-        <item name="cornerSizeBottomRight">18dp</item>
-        <item name="strokeColor">#F3F5F9</item>
-        <item name="strokeWidth">3dp</item>
-    </style>
 
-    <style name="CustomSegmentedButton.End" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.MaterialComponents.SmallComponent</item>
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerRadius">18dp</item>
-        <item name="cornerSizeTopLeft">8dp</item>
-        <item name="cornerSizeBottomLeft">8dp</item>
-        <item name="strokeColor">#F3F5F9</item>
-        <item name="strokeWidth">3dp</item>
-    </style>
+
+    <declare-styleable name="CustomSegmentedButton">
+        <attr name="checkedButton" format="reference" />
+    </declare-styleable>
+
+
 
 </resources>

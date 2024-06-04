@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_searchFragment_to_searchResultsFragment"
             app:destination="@id/searchResultsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_exploreFragment"
+            app:destination="@id/exploreFragment" />
     </fragment>
     <fragment
         android:id="@+id/offersFragment"
