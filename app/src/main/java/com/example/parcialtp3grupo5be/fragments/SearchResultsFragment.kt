@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.ScrollView
 import android.widget.TextView
@@ -46,11 +47,12 @@ class SearchResultsFragment : Fragment() {
     lateinit var containerFlightsResults : ScrollView
 
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initSearchResultsRV(view)
         fetchData()
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +81,6 @@ class SearchResultsFragment : Fragment() {
         }
 
         return view
-
     }
 
     private fun initSearchResultsRV(view : View){
@@ -104,7 +105,9 @@ class SearchResultsFragment : Fragment() {
                         txtResultsFound.text = "${flights.size} results found"
                         progressBar.visibility = View.GONE
                         containerFlightsResults.visibility = View.VISIBLE
+
                     }
+
                 }
             }
 

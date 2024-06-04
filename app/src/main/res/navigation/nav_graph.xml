@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_searchResultsFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_searchResultsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
       
     <fragment
@@ -61,6 +64,14 @@
         <action
             android:id="@+id/action_settingsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.parcialtp3grupo5be.fragments.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
 </navigation>
