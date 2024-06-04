@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6E9F0"
+    android:background="@color/white"
     tools:context=".fragments.ProfileFragment">
 
 
 
 <androidx.constraintlayout.widget.ConstraintLayout
-
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E6E9F0"
-    tools:context=".fragments.ProfileFragment">
+    android:layout_height="wrap_content"
 
-
+>
 
 
     <ImageView
@@ -61,10 +57,10 @@
         android:id="@+id/constraintMainProfile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="200dp"
         android:background="@drawable/profile_background_main"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBackProfile">
 
 
         <TextView
@@ -120,18 +116,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtDescriptionProfile" />
 
-        <ScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/dividerProfile"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
 
                 tools:layout_editor_absoluteX="1dp">
 
@@ -283,7 +282,7 @@
                         app:layout_constraintTop_toTopOf="@+id/imgLogoutProfile" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
-        </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

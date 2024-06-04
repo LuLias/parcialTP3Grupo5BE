@@ -18,6 +18,9 @@
     <style name="AppTheme.ResultsAppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
         <item name="android:fontFamily">@font/inter_medium</item>
         <item name="android:textSize">18sp</item>
+    </style>
 
+    <style name="AppTheme.TextBottomNavActive" parent="Widget.Material3.BottomNavigationView" >
+        <item name="color">@color/blue</item>
     </style>
 </resources>

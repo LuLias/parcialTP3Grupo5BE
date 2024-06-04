@@ -59,9 +59,9 @@ class SettingsFragment : Fragment() {
         btnBackToProfile = settingsFragmentView.findViewById(R.id.materialToolbar)
         swDarkMode = settingsFragmentView.findViewById(R.id.switchDarkMode)
 
-            btnBackToProfile.setOnClickListener{
-            val action = SettingsFragmentDirections.actionSettingsFragmentToProfileFragment()
-            settingsFragmentView.findNavController().navigate(action)
+        btnBackToProfile.setOnClickListener{
+        val action = SettingsFragmentDirections.actionSettingsFragmentToProfileFragment()
+        settingsFragmentView.findNavController().navigate(action)
         }
 
         swDarkMode.setOnCheckedChangeListener { buttonView, isChecked ->

@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@color/light_grey"
     android:padding="16dp">
+=======
+    android:background="@color/light_grey">
+
+>>>>>>> b7e3c5c60938f11cf23533d35b5e831a73adf317
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/hamburger_icon" />
+
 
         <ImageView
             android:id="@+id/imgHeaderLogo"
@@ -74,11 +81,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="#FCFCFF"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
