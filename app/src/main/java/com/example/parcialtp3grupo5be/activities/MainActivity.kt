@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFrag: NavHostFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        //Lo comento para arreglar el paddingBottom de la bottomNav
+        //enableEdgeToEdge()
+
         setContentView(R.layout.activity_main)
 
 
