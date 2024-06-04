@@ -19,6 +19,7 @@ class SearchResultsAdapter (var searchResultsList : List<Flight>) : RecyclerView
 
     override fun onBindViewHolder(holder: SearchResultsViewHolder, position: Int) {
         var item = searchResultsList[position]
+
         holder.render(item)
     }
 }
