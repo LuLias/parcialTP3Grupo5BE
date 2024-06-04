@@ -1,6 +1,7 @@
 package com.example.parcialtp3grupo5be.viewHolders
 
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,8 @@ class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val arrival_airport_name = view.findViewById<TextView>(R.id.txtArrivalAirportName)
     val travel_class = view.findViewById<TextView>(R.id.txtTravelClass)
     val price = view.findViewById<TextView>(R.id.txtPrice)
+    val btnDetails = view.findViewById<Button>(R.id.btnDetails)
+
 
     fun render (model: Flight){
 
@@ -31,6 +34,11 @@ class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         arrival_airport_name.text = model.flights.last().arrival_airport.name.split(" ")[0]
         travel_class.text = model.flights[0].travel_class
         price.text = String.format("$%02d",model.price)
+
+        btnDetails.setOnClickListener(){
+            val action = R.id.action_searchResultsFragment_to_detailsFragment
+          //  findNavController().navigate(action)
+        }
 
     }
 

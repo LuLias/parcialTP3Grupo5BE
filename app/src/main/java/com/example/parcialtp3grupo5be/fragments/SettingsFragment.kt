@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.parcialtp3grupo5be.R
 import com.google.android.material.appbar.MaterialToolbar
 
@@ -33,6 +34,7 @@ class SettingsFragment : Fragment() {
     lateinit var settingsFragmentView : View
     lateinit var btnBackToProfile : MaterialToolbar
     lateinit var swDarkMode : SwitchCompat
+    lateinit var boton : Button
 
 
 
@@ -68,6 +70,13 @@ class SettingsFragment : Fragment() {
             } else {
                 goInNormalMode()
             }
+        }
+
+        //sacar
+        boton = settingsFragmentView.findViewById(R.id.button)
+        boton.setOnClickListener(){
+            val action = R.id.action_settingsFragment_to_detailsFragment
+            findNavController().navigate(action)
         }
 
         return settingsFragmentView
