@@ -100,7 +100,9 @@ class SearchResultsFragment : Fragment() {
                     response.body()?.let { searchResponse ->
                         val flights: List<Flight> = searchResponse.best_flights
                         SearchResultsProvider.searchResultsList = flights
-                        adapter = SearchResultsAdapter(SearchResultsProvider.searchResultsList)
+                        adapter = SearchResultsAdapter(SearchResultsProvider.searchResultsList){ flight ->
+                            findNavController().navigate(R.id.action_searchResultsFragment_to_detailsFragment)
+                        }
                         recyclerView.adapter = adapter
                         txtResultsFound.text = "${flights.size} results found"
                         progressBar.visibility = View.GONE

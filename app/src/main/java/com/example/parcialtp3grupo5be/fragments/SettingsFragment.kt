@@ -72,13 +72,6 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        //sacar
-        boton = settingsFragmentView.findViewById(R.id.button)
-        boton.setOnClickListener(){
-            val action = R.id.action_settingsFragment_to_detailsFragment
-            findNavController().navigate(action)
-        }
-
         return settingsFragmentView
     }
 

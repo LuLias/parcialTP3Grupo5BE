@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.parcialtp3grupo5be.R
@@ -48,7 +50,16 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false)
+        var view = inflater.inflate(R.layout.fragment_details, container, false)
+
+        val btnBack =  view.findViewById<ImageButton>(R.id.btnBackDetails)
+
+        btnBack.setOnClickListener{
+            findNavController().navigate(R.id.action_detailsFragment_to_searchResultsFragment)
+        }
+
+
+        return view
     }
 
     private fun initDetailsPhotosRV(view: View){

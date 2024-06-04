@@ -76,5 +76,9 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.parcialtp3grupo5be.fragments.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_searchResultsFragment"
+            app:destination="@id/searchResultsFragment" />
+    </fragment>
 </navigation>

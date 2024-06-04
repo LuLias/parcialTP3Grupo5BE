@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.parcialtp3grupo5be.R
 import com.example.parcialtp3grupo5be.entities.Flight
 
-class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+class SearchResultsViewHolder (view: View,private val onDetailsClick:(Flight)-> Unit) : RecyclerView.ViewHolder(view) {
     val logo_airline = view.findViewById<ImageView>(R.id.imgLogoAirline)
     val airline = view.findViewById<TextView>(R.id.txtAirlineName)
     val duration = view.findViewById<TextView>(R.id.txtDuration)
@@ -35,9 +35,8 @@ class SearchResultsViewHolder (view: View) : RecyclerView.ViewHolder(view) {
         travel_class.text = model.flights[0].travel_class
         price.text = String.format("$%02d",model.price)
 
-        btnDetails.setOnClickListener(){
-            val action = R.id.action_searchResultsFragment_to_detailsFragment
-          //  findNavController().navigate(action)
+        btnDetails.setOnClickListener {
+            onDetailsClick(model)
         }
 
     }

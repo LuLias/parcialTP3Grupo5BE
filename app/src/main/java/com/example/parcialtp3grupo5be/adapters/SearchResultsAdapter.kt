@@ -8,12 +8,12 @@ import com.example.parcialtp3grupo5be.R
 import com.example.parcialtp3grupo5be.entities.Flight
 import com.example.parcialtp3grupo5be.viewHolders.SearchResultsViewHolder
 
-class SearchResultsAdapter (var searchResultsList : List<Flight>) : RecyclerView.Adapter<SearchResultsViewHolder>() {
+class SearchResultsAdapter (var searchResultsList : List<Flight>,private val onDetailsClick: (Flight) -> Unit) : RecyclerView.Adapter<SearchResultsViewHolder>() {
 
     lateinit var btnToDetails: Button
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchResultsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return SearchResultsViewHolder(layoutInflater.inflate(R.layout.search_results_item, parent, false))
+        return SearchResultsViewHolder(layoutInflater.inflate(R.layout.search_results_item, parent, false),onDetailsClick)
     }
 
     override fun getItemCount(): Int = searchResultsList.size

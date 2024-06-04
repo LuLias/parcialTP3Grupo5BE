@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6E9F0"
+    android:background="@color/white"
     tools:context=".fragments.ProfileFragment">
 
 
@@ -36,7 +36,7 @@
             tools:ignore="MissingConstraints" />
 
         <ImageButton
-            android:id="@+id/btnBackProfile"
+            android:id="@+id/btnBackDetails"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btnEditProfile"
+            android:id="@+id/btnFavDetails"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="50dp"
